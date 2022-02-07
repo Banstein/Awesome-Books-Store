@@ -2,7 +2,7 @@ const inputTitle = document.querySelector('.input-title');
 const inputAuthor = document.querySelector('.input-author');
 const btnAdd = document.querySelector('.btn-add');
 const displayBook = document.querySelector('.inject');
-const books = [];
+let books = [];
 
 // store books into local storage
 function storeBooks() {
@@ -17,7 +17,7 @@ function displayBooks(id, title, author) {
   <li>
   <h3>${title}</h3>
   <h3>${author}</h3>
-  <input type='button' value='Remove'>
+  <input type='button' value='Remove' class='remove-btn'>
   </li>
 `;
 }
@@ -43,11 +43,21 @@ btnAdd.addEventListener('click', () => {
   addBook(title, author);
 });
 
-// books.forEach((book) => {
-//   displayBooks(book.id, book.title, book.author);
-// });
+
+const getBookFromStorage = JSON.parse(localStorage.getItem('books'));
+if (getBookFromStorage) {
+  books = getBookFromStorage;
+}
+
+books.forEach((book) => {
+  displayBooks(book.id, book.title, book.author);
+});
 
 // remove books
 function removeBooks() {
-  
+  const removeBtn = document.querySelectorAll('.remove-btn');
+  removeBtn.addEventListener('click', () => {
+    books.filter(book => book !== bookObj.id);   
+  })
+
 }
