@@ -15,4 +15,12 @@ btnAdd.addEventListener('click', () => {
   const title = inputTitle.value;
   const author = inputAuthor.value;
   addBook(title, author);
+
+  const validateInput = () => {
+    let inputValue = document.querySelector('ul input').value;
+    let validate = document.getElementsByClassName('.validate')
+    if(inputValue === '') {
+      validate.innerHTML = 'input must be filled out'
+    }
+  }
 });
