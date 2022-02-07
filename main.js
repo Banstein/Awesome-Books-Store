@@ -16,6 +16,7 @@ function displayBooks(id, title, author) {
   <h3>${title}</h3>
   <h3>${author}</h3>
   <input type='button' value='Remove' class='remove-btn'>
+  <hr>
   </li>
 `;
 }
@@ -25,6 +26,9 @@ const addBook = (title, author) => {
   if (title === '' || author === '') {
     const validate = document.querySelector('.validate');
     validate.innerHTML = 'input must be filled out';
+    setTimeout(() => {
+      validate.innerHTML = '';
+    }, 2000);
   } else {
     const id = Date.now();
     const bookObj = { id, title, author };
@@ -51,12 +55,18 @@ books.forEach((book) => {
   displayBooks(book.id, book.title, book.author);
 });
 
+function removeBook(id) {
+  const loot = books.filter((book) => book.id !== id);
+  localStorage.setItem('boos', JSON.stringify(loot));
+  console.log(id);
+}
+
 const removeBookBtns = document.querySelectorAll('.remove-btn');
 removeBookBtns.forEach((removeBtn) => {
   removeBtn.addEventListener('click', (e) => {
     const lay = e.target.parentNode;
+    removeBook(lay.id);
     lay.remove();
-    localStorage.setItem('books', JSON.stringify(books));
   });
 });
 
