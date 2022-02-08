@@ -45,7 +45,7 @@ btnAdd.addEventListener('click', (e) => {
   const title = inputTitle.value;
   const author = inputAuthor.value;
   addBook(title, author);
-  window.location.reload();
+  // window.location.reload();
 });
 
 // show
