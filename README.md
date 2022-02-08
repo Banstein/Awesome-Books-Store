@@ -1,4 +1,4 @@
-# Awesmoe Books
+# Awesome Books
 
 A Website demo for our project of book store, The website has ability of adding and removing you books from yor library, Thats reflects our coding skills.
 
