@@ -40,10 +40,12 @@ const addBook = (title, author) => {
   }
 };
 
-btnAdd.addEventListener('click', () => {
+btnAdd.addEventListener('click', (e) => {
+  e.preventDefault();
   const title = inputTitle.value;
   const author = inputAuthor.value;
   addBook(title, author);
+  window.location.reload();
 });
 
 // show
@@ -64,16 +66,9 @@ function removeBook(id) {
 const removeBookBtns = document.querySelectorAll('.remove-btn');
 removeBookBtns.forEach((removeBtn) => {
   removeBtn.addEventListener('click', (e) => {
+    e.preventDefault();
     const lay = e.target.parentNode;
     lay.remove();
     removeBook(lay.id);
   });
 });
-
-// // remove books
-// function removeBooks() {
-//   const removeBtn = document.querySelectorAll('.remove-btn');
-//   removeBtn.addEventListener('click', () => {
-//     books.filter(book => book !== bookObj.id);
-//   })
-// }
