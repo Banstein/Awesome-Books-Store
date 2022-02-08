@@ -2,9 +2,6 @@
 
 A Website demo for our project of book store, The website has ability of adding and removing you books from yor library, Thats reflects our coding skills.
 
-<p align="center">
-  <img src="./screenshot.png">
-</p>
 
 ## Live Link
 
