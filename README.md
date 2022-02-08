@@ -9,9 +9,9 @@ A Website demo for our project of book store, The website has ability of adding 
 
 ## Built With!
 
-- HTML
-- CSS
-- JavaScript
+- HTML.
+- CSS.
+- JavaScript.
 
 ## Getting Started
 
