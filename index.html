@@ -4,22 +4,19 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/style.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <title>Awesome Books</title>
 </head>
 <body>
-  <header>
-    <h1>
-      Awesome books
-    </h1>
-  </header>
-  <main>
-    <ul class="inject"></ul>
-    <input type="text" class="input-title" placeholder="Title" required>
-    <input type="text" class="input-author" placeholder="Author" required>
-    <span class="validate"></span>
-    <button class="btn-add">Add</button>
-  </main>
-  <script src="/main.js"></script>
+  <h1>Awesome Books</h1>
+  <ul id="book-list"></ul>
+  <form action="#">
+    <input type="text" id="title" placeholder="Title"> <br><br>
+    <input type="text" id="author" placeholder="Author"> <br><br>
+    <button type="submit" id="add-btn">Add</button>
+    <br>
+    <small class="err-msg"></small>
+  </form>
+  <script src="main.js"></script>
 </body>
 </html>
