@@ -30,12 +30,13 @@ const addBook = (title, author) => {
       validate.innerHTML = '';
     }, 2000);
   } else {
-    const id = Date.now();
+    const id = Date.now().toString();
     const bookObj = { id, title, author };
     books.push(bookObj);
     storeBooks();
     document.querySelector('.input-title').value = '';
     document.querySelector('.input-author').value = '';
+    displayBooks(id, title, author);
   }
 };
 
@@ -56,17 +57,16 @@ books.forEach((book) => {
 });
 
 function removeBook(id) {
-  const loot = books.filter((book) => book.id !== id);
-  localStorage.setItem('boos', JSON.stringify(loot));
-  console.log(id);
+  books = books.filter((book) => book.id !== id);
+  storeBooks();
 }
 
 const removeBookBtns = document.querySelectorAll('.remove-btn');
 removeBookBtns.forEach((removeBtn) => {
   removeBtn.addEventListener('click', (e) => {
     const lay = e.target.parentNode;
-    removeBook(lay.id);
     lay.remove();
+    removeBook(lay.id);
   });
 });
 
