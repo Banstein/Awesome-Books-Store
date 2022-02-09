@@ -98,12 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-const date = document.getElementById('date');
-// eslint-disable-next-line no-undef
-const { DateTime } = luxon;
-const now = DateTime.now();
-date.innerText = now.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
-
 const seeListsOfBooks = document.getElementById('list-of-books');
 const addNewBook = document.getElementById('add-new-link');
 const contactLink = document.getElementById('contact-link');
@@ -134,3 +128,20 @@ contactLink.addEventListener('click', () => {
   document.getElementById('awesome-books').classList.add('hide');
   document.getElementById('add-book').classList.add('hide');
 });
+
+// date display
+function formatAMPM(date) {
+  const day = date.toDateString();
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let seconds = date.getSeconds();
+  const ampm = hours >= 12 ? 'pm' : 'am';
+  hours %= 12;
+  hours = hours || 12; // the hour '0' should be '12'
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+  seconds = seconds < 10 ? `0${seconds}` : seconds;
+  const strTime = `${day}, ${hours}:${minutes}:${seconds} ${ampm}`;
+  return strTime;
+}
+const date = document.getElementById('date');
+date.innerText = formatAMPM(new Date());
