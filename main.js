@@ -99,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const date = document.getElementById('date');
+// eslint-disable-next-line no-undef
 const { DateTime } = luxon;
 const now = DateTime.now();
 date.innerText = now.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
